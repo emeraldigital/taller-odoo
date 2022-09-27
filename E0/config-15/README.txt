@@ -1,0 +1,1 @@
+Into this folder will appear the odoo.conf file.
