@@ -1,0 +1,62 @@
+<odoo>
+    <!-- ODOO VIEWS (ir.ui.view) -->
+
+    <!-- library.book FORM VIEW -->
+    <record id="library_book_view_form" model="ir.ui.view">
+        <field name="name">Lbrary Book Form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form string="Book Form">
+                <header>
+                    <!-- Buttons will go here -->
+                    <button name="button_check_isbn" type="object" string="Check ISBN" class="btn btn-info" />
+                </header>
+                <sheet>
+                    <!-- Model Fields Content will go here -->
+                    <group name="top-group" col="4">
+                        <group name="left-group">
+                            <field name="name" />
+                            <field name="author_ids" widget="many2many_tags" />
+                            <field name="publisher_id" />
+                            <field name="date_published" />
+                            <field name="isbn" />
+                        </group>
+                        <group name="right-group">
+                            <field name="active" />
+                            <field name="image" widget="image" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- library.book LIST/TREE VIEW -->
+    <record id="library_book_view_tree" model="ir.ui.view">
+        <field name="name">Library Book List</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="author_ids" widget="many2many_tags" />
+                <field name="publisher_id"/>
+                <field name="date_published"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- library.book SEARCH VIEW -->
+    <record id="view_search_book" model="ir.ui.view">
+        <field name="name">Book Filters</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="publisher_id"/>
+                <filter name="inactive_filter" string="Inactive" domain="[('active','=',False)]"/>
+                <filter name="active_filter" string="Active" domain="[('active','=',True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- library.book ? VIEW -->
+</odoo>

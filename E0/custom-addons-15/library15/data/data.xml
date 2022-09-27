@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Library Category -->
+        <record id="services_library_category" model="ir.module.category">
+            <field name="name">Library</field>
+            <field name="parent_id" ref="base.module_category_services" />
+        </record>
+    </data>
+</odoo>

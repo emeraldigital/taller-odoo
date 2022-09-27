@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+  
+  odoo:
+    container_name: odoo15
+    image: odoo:15.0
+    env_file: .env
+    ports:
+      - "127.0.0.1:8069:8069"
+    # WARNING: For update/install modules inside the container
+    # command: odoo -c /etc/odoo/odoo.conf -u library_ed -d test15 --test-enable
+    depends_on:
+      - postgres
+    volumes:
+      - odoo15-data:/var/lib/odoo
+      - ./config-15:/etc/odoo
+      - ./custom-addons-15:/mnt/extra-addons
+
+  postgres:
+    container_name: postgres-for-odoo15
+    image: postgres
+    env_file: .env
+    volumes:
+      - postgres-db:/var/lib/postgresql/data/pgdata
+
+volumes:
+  odoo15-data:
+  postgres-db:

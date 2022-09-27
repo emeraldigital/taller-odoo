@@ -1,0 +1,27 @@
+<odoo>
+    <!-- ODOO WINDOW ACTIONS (ir.action.act_window) -->
+
+    <!-- Action to open the Book list -->
+    <record id="library_book_action" model="ir.actions.act_window">
+        <field name="name">Library Books</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    
+    <!-- ODOO MENU ITEMS (ir.ui.menu) -->
+
+    <!-- App Menu Entry -->
+    <menuitem
+        id="library15_menuitem"
+        name="Library 15"
+    />
+
+    <!-- Start view(s) -->
+    <menuitem
+        id="library_start_menuitem"
+        name="Books"
+        parent="library15_menuitem"
+        action="library_book_action"
+    />
+</odoo>

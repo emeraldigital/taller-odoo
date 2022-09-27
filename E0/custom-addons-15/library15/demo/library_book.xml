@@ -1,0 +1,8 @@
+<odoo>
+      <data>
+          <record id="book_demo_1" model="library.book">
+              <field name="name">Odoo Development Essentials</field>
+              <field name="isbn">879-1-78439-279-6</field>
+          </record>
+      </data>
+</odoo>

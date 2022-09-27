@@ -1,0 +1,21 @@
+<odoo>
+    <!-- ODOO WINDOW ACTIONS (ir.action.act_window) -->
+
+    <!-- Action to open library book members -->
+    <record id="library_member_action" model="ir.actions.act_window">
+        <field name="name">Library Members</field>
+        <field name="res_model">library.member</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <!-- ODOO MENU ITEMS (ir.ui.menu) -->
+
+    <!-- Library members menuitem -->
+    <menuitem
+        id="library_member_menuitem"
+        name="Members"
+        action="library_member_action"
+        parent="library15.library15_menuitem"
+    />
+</odoo>
