@@ -10,23 +10,23 @@ Repo containing session's material about _**odoo introduction**_, to follow at y
 
 <br/>
 
-###**About Session**
---------------------
+**About Session**
+-----------------
 
 - **Presented by:** Sergio Ernesto Tostado Sánchez
-- **Datetime:** Friday 29, September 2022.
+- **Datetime:** Thursday 29, September 2022.
 - **Location:** EMERALD boardroom.
 
 <br/>
 
-###**Index**
-------------
+**Index**
+---------
 
 - **E0:** Introduction to Odoo development, creating your first app.
 
 <br/>
 
-###**References**
------------------
+**References**
+--------------
 
 You can find them for each folder into README.md file.
