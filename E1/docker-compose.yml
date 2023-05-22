@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  
+  odoo:
+    container_name: odoo16
+    image: odoo:16.0
+    env_file: .env
+    ports:
+      - "127.0.0.1:8069:8069"
+    # WARNING: For saving all the running config of server;
+    # once saved it, comment again with "#":
+    # command: odoo --save --stop-after-init
+    # WARNING: For update (-u)/install (-i) modules inside the container, also enable 
+    # the unit-testing of the indicated module (quit # before --test-enable):
+    # command: odoo -c /etc/odoo/odoo.conf -d test16 -i create_project_from_sale_order # --test-enable
+    depends_on:
+      - postgres
+    volumes:
+      - odoo16-data:/var/lib/odoo
+      - ./config-16:/etc/odoo
+      - ./custom-addons-16:/mnt/extra-addons
+
+  postgres:
+    container_name: postgres-for-odoo16
+    image: postgres
+    env_file: .env
+    volumes:
+      - postgres-db:/var/lib/postgresql/data/pgdata
+
+volumes:
+  odoo16-data:
+  postgres-db:

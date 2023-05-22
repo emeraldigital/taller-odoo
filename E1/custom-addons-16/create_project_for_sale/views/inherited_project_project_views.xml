@@ -1,0 +1,17 @@
+<odoo>
+  <!-- Sets "related_sale_order_id" at project.project form view -->
+  <record model="ir.ui.view" id="inherited_project_project_form_view">
+    <field name="name">inherited.project.project.form.view</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.edit_project" />
+    <field name="arch" type="xml">
+      <xpath expr="//div[@name='dates']" position="after">
+        <field
+          name="related_sale_order_id"
+          options="{'no_create': True}"
+          attrs="{'invisible': [('related_sale_order_id', '=', False)]}"
+        />
+      </xpath>
+    </field>
+  </record>
+</odoo>
