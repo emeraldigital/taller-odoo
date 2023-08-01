@@ -37,25 +37,25 @@ class SaleOrder(models.Model):
                     'user_id': sale_order.user_id.id
                 })
 
-            # Creating / Linking task stages to project.
-            _logger.info("Creating / Linking task stages for %s ...", project.name)
-            task_stage_obj = self.env['project.task.type']
-            task_stages = ('New', 'In Progress', 'Done', 'Canceled')
-            for stage in task_stages:
-                # If there's any stage with specified name that's NOT personal for any user.
-                task_stage = task_stage_obj.search([
-                    ('name', '=', stage),
-                    ('user_id', '=', False)
-                ], limit=1)
-                
-                if not task_stage:
-                    task_stage = task_stage_obj.create({
-                        'name': stage,
-                        'project_ids': [(4, project.id)]
-                    })
-                else:
-                    if project.id not in [t.id for t in task_stage.project_ids]:
-                        task_stage.write({'project_ids': [(4, project.id)]})
+                # Creating / Linking task stages to project.
+                _logger.info("Creating / Linking task stages for %s ...", project.name)
+                task_stage_obj = self.env['project.task.type']
+                task_stages = ('New', 'In Progress', 'Done', 'Canceled')
+                for stage in task_stages:
+                    # If there's any stage with specified name that's NOT personal for any user.
+                    task_stage = task_stage_obj.search([
+                        ('name', '=', stage),
+                        ('user_id', '=', False)
+                    ], limit=1)
+                    
+                    if not task_stage:
+                        task_stage = task_stage_obj.create({
+                            'name': stage,
+                            'project_ids': [(4, project.id)]
+                        })
+                    else:
+                        if project.id not in [t.id for t in task_stage.project_ids]:
+                            task_stage.write({'project_ids': [(4, project.id)]})
 
             # Create 1st task at sale project.
             _logger.info("Creating first task for %s ..." % project.name)
